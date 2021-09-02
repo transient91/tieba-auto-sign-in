@@ -46,8 +46,8 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(chrome_options=chrome_options,
                               executable_path=chromedriver)
     driver.implicitly_wait(60)
-    driver.set_page_load_timeout(5)
-    driver.set_script_timeout(5)
+    driver.set_page_load_timeout(60)
+    driver.set_script_timeout(60)
     try:
         driver.get("https://tieba.baidu.com/index.html")
     except:

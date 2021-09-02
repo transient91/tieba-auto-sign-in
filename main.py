@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import json
 from selenium.webdriver.common.action_chains import ActionChains
 import os
+from selenium.webdriver.chrome.options import Options
 
 
 def get_tieba_url(driver):
@@ -35,7 +36,15 @@ def sign_in(driver, url):
 
 
 if __name__ == '__main__':
-    driver = webdriver.Edge()
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chromedriver = "/usr/bin/chromedriver"
+    os.environ["webdriver.chrome.driver"] = chromedriver
+    driver = webdriver.Chrome(chrome_options=chrome_options,
+                              executable_path=chromedriver)
     driver.implicitly_wait(5)
     driver.set_page_load_timeout(5)
     driver.set_script_timeout(5)

@@ -45,8 +45,8 @@ def sign_in(driver, url):
 
 if __name__ == '__main__':
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-#     options.add_argument("service_args=['–ignore-ssl-errors=true', '–ssl-protocol=TLSv1']")
+#     options.add_argument('--headless')
+    options.add_argument("service_args=['–ignore-ssl-errors=true', '–ssl-protocol=TLSv1']")
 #     chrome_options.add_argument('--no-sandbox')
 #     chrome_options.add_argument('--disable-gpu')
 #     chrome_options.add_argument('--disable-dev-shm-usage')

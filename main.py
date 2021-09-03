@@ -36,18 +36,19 @@ def sign_in(driver, url):
 
 
 if __name__ == '__main__':
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--headless')
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument("service_args=['–ignore-ssl-errors=true', '–ssl-protocol=TLSv1']")
 #     chrome_options.add_argument('--no-sandbox')
 #     chrome_options.add_argument('--disable-gpu')
 #     chrome_options.add_argument('--disable-dev-shm-usage')
     chromedriver = "/usr/bin/chromedriver"
     os.environ["webdriver.chrome.driver"] = chromedriver
-    driver = webdriver.Chrome(chrome_options=chrome_options,
+    driver = webdriver.Chrome(chrome_options=options,
                               executable_path=chromedriver)
-    driver.implicitly_wait(60)
-    driver.set_page_load_timeout(60)
-    driver.set_script_timeout(60)
+    driver.implicitly_wait(30)
+    driver.set_page_load_timeout(30)
+    driver.set_script_timeout(30)
     try:
         driver.get("https://tieba.baidu.com/index.html")
     except:

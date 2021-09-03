@@ -44,7 +44,7 @@ if __name__ == '__main__':
 #     chrome_options.add_argument('--disable-dev-shm-usage')
     chromedriver = "/usr/bin/chromedriver"
     os.environ["webdriver.chrome.driver"] = chromedriver
-    driver = webdriver.Chrome(chrome_options=options,
+    driver = webdriver.Chrome(options=options,
                               executable_path=chromedriver)
     driver.implicitly_wait(30)
     driver.set_page_load_timeout(30)

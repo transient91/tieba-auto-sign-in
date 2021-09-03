@@ -34,8 +34,10 @@ def sign_in(driver, url):
         '//*[@id="signstar_wrapper"]/a')
     # ActionChains(driver).move_to_element(sign_in_button).perform()
     # time.sleep(2)
-    sign_in_button.click()
-    sign_in_button.click()
+    driver.execute_script("arguments[0].click();", sign_in_button)
+    driver.execute_script("arguments[0].click();", sign_in_button)
+    # sign_in_button.click()
+    # sign_in_button.click()
 
 
 if __name__ == '__main__':

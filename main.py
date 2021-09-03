@@ -26,7 +26,10 @@ def get_tieba_url(driver):
 
 
 def sign_in(driver, url):
-    driver.get(url)
+    try:
+        driver.get(url)
+    except:
+        driver.execute_script('window.stop()')
     sign_in_button = driver.find_element_by_xpath(
         '//*[@id="signstar_wrapper"]/a')
     # ActionChains(driver).move_to_element(sign_in_button).perform()
@@ -61,7 +64,12 @@ if __name__ == '__main__':
             "name": k,
             "value": v,
         })
-    driver.refresh()
+       
+    try:
+        driver.refresh()
+    except:
+        driver.execute_script('window.stop()')
+        
     if not os.path.exists('cache.txt') or os.path.getsize('cache.txt') == 0:
         get_tieba_url(driver)
     with open('cache.txt', 'r', encoding='UTF-8') as f:

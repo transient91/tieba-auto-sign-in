@@ -29,7 +29,10 @@ def sign_in(driver, url):
     try:
         driver.get(url)
     except:
-        driver.execute_script('window.stop()')
+        try:
+            driver.get(url)
+        except:
+            driver.execute_script('window.stop()')
     sign_in_button = driver.find_element_by_xpath(
         '//*[@id="signstar_wrapper"]/a')
     # ActionChains(driver).move_to_element(sign_in_button).perform()

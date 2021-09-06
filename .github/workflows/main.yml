@@ -39,4 +39,5 @@ jobs:
           chmod -R 777 /usr/bin/chromedriver
           python ./main.py
         env:
-          COOKIE: ${{ secrets.COOKIE }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
